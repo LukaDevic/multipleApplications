@@ -1,0 +1,85 @@
+﻿@model MultipleApplications.Models.Customer
+@{
+    ViewBag.Title = "CustomersForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CustomersForm</h2>
+
+@using (Html.BeginForm("Save", "Customers"))
+{
+<div class="row">
+    <div class="col-lg-6">
+        <h4>Informacije o polazniku</h4>
+        <div class="form-group">
+            @Html.LabelFor(m => m.JMBG)
+            @Html.TextBoxFor(m => m.JMBG, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Ime)
+            @Html.TextBoxFor(m => m.Ime, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Prezime)
+            @Html.TextBoxFor(m => m.Prezime, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Adresa)
+            @Html.TextBoxFor(m => m.Adresa, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Telefon)
+            @Html.TextBoxFor(m => m.Telefon, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Status)
+            @Html.TextBoxFor(m => m.Status, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <h4>Informacije o naplati</h4>
+    <div class="col-lg-6">
+        <div class="form-group">
+            @Html.LabelFor(m => m.TeorijskaObuka)
+            @Html.TextBoxFor(m => m.TeorijskaObuka, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.TeorijskiIspit)
+            @Html.TextBoxFor(m => m.TeorijskiIspit, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.PrakticnaObuka)
+            @Html.TextBoxFor(m => m.PrakticnaObuka, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.PrakticanIspit)
+            @Html.TextBoxFor(m => m.PrakticanIspit, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.BrojDodatnihCasova)
+            @Html.TextBoxFor(m => m.BrojDodatnihCasova, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.PlacenoZaDodatneCasove)
+            @Html.TextBoxFor(m => m.PlacenoZaDodatneCasove, new { @class = "form-control" })
+        </div>
+        <div class="checkbox">
+            <label>
+                @Html.CheckBoxFor(m => m.DaLiKoristiAkciju) Da li polaznik koristi akcijsku cenu obuke?
+            </label>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.AkcijskaCena)
+            @Html.TextBoxFor(m => m.AkcijskaCena, new { @class = "form-control" })
+        </div>
+        <div class="checkbox">
+            <label>
+                @Html.CheckBoxFor(m => m.PlacenoSve) Da li je polaznik platio sve dazbine koje snosi?
+            </label>
+        </div>
+        @Html.HiddenFor(c => c.Id)
+        @Html.AntiForgeryToken()        
+            <button type="submit" class="btn btn-primary">Submit</button>       
+    </div>
+    </div>
+    }
